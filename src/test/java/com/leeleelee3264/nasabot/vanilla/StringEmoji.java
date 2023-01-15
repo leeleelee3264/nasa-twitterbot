@@ -1,4 +1,4 @@
-package com.leeleelee3264.earthtoday.vanilla;
+package com.leeleelee3264.nasabot.vanilla;
 
 public class StringEmoji {
         public static void main(String[] args)  {

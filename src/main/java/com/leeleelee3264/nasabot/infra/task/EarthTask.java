@@ -1,8 +1,8 @@
-package com.leeleelee3264.earthtoday.nasa.task;
+package com.leeleelee3264.nasabot.infra.task;
 
-import com.leeleelee3264.earthtoday.exception.BotException;
-import com.leeleelee3264.earthtoday.nasa.service.EarthService;
-import com.leeleelee3264.earthtoday.util.LoggingUtils;
+import com.leeleelee3264.nasabot.global.exception.BotException;
+import com.leeleelee3264.nasabot.domain.todayearth.application.EarthService;
+import com.leeleelee3264.nasabot.global.util.LoggingUtils;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 

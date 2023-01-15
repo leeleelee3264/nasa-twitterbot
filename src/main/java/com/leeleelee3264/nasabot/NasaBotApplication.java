@@ -1,8 +1,8 @@
-package com.leeleelee3264.earthtoday;
+package com.leeleelee3264.nasabot;
 
-import com.leeleelee3264.earthtoday.exception.BotException;
-import com.leeleelee3264.earthtoday.nasa.service.EarthService;
-import com.leeleelee3264.earthtoday.util.LoggingUtils;
+import com.leeleelee3264.nasabot.global.exception.BotException;
+import com.leeleelee3264.nasabot.domain.todayearth.application.EarthService;
+import com.leeleelee3264.nasabot.global.util.LoggingUtils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -13,11 +13,11 @@ import java.time.LocalDate;
 
 @SpringBootApplication
 @EnableScheduling
-public class TodayEarthApplication {
+public class NasaBotApplication {
 
     public static void main(String[] args) {
 
-        ConfigurableApplicationContext context = SpringApplication.run(TodayEarthApplication.class, args);
+        ConfigurableApplicationContext context = SpringApplication.run(NasaBotApplication.class, args);
         LocalDate date = LocalDate.now().minusDays(2);
         EarthService service = context.getBean(EarthService.class);
 

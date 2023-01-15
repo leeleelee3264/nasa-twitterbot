@@ -1,6 +1,6 @@
-package com.leeleelee3264.earthtoday.nasa.client;
+package com.leeleelee3264.nasabot.domain.todayearth.application.consumer;
 
-import com.leeleelee3264.earthtoday.nasa.dto.Meta;
+import com.leeleelee3264.nasabot.domain.todayearth.dto.Meta;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.core.ParameterizedTypeReference;

@@ -1,6 +1,6 @@
-package com.leeleelee3264.earthtoday.vanilla;
+package com.leeleelee3264.nasabot.vanilla;
 
-import com.leeleelee3264.earthtoday.exception.ShellException;
+import com.leeleelee3264.nasabot.global.exception.ShellException;
 
 public class ParentException {
 

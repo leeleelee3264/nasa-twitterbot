@@ -1,4 +1,4 @@
-package com.leeleelee3264.earthtoday.util;
+package com.leeleelee3264.nasabot.global.util;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StringUtils;

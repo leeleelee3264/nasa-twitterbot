@@ -1,6 +1,6 @@
-package com.leeleelee3264.earthtoday.nasa.client;
+package com.leeleelee3264.nasabot.infra.sms;
 
-import com.leeleelee3264.earthtoday.util.LoggingUtils;
+import com.leeleelee3264.nasabot.global.util.LoggingUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import twitter4j.Twitter;

@@ -1,4 +1,4 @@
-package com.leeleelee3264.earthtoday.nasa.client;
+package com.leeleelee3264.nasabot.domain.todayearth.application.consumer;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;

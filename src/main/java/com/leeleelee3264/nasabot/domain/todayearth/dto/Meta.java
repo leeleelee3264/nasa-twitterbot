@@ -1,4 +1,4 @@
-package com.leeleelee3264.earthtoday.nasa.dto;
+package com.leeleelee3264.nasabot.domain.todayearth.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

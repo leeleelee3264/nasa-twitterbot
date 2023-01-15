@@ -1,4 +1,4 @@
-package com.leeleelee3264.earthtoday.exception;
+package com.leeleelee3264.nasabot.global.exception;
 
 public class ShellException extends RuntimeException{
 

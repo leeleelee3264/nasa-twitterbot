@@ -1,8 +1,8 @@
-package com.leeleelee3264.earthtoday.nasa.shell;
+package com.leeleelee3264.nasabot.infra.shell;
 
 
-import com.leeleelee3264.earthtoday.exception.ShellException;
-import com.leeleelee3264.earthtoday.util.LoggingUtils;
+import com.leeleelee3264.nasabot.global.exception.ShellException;
+import com.leeleelee3264.nasabot.global.util.LoggingUtils;
 
 import java.io.BufferedReader;
 import java.io.File;

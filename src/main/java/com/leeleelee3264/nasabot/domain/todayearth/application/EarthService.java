@@ -1,13 +1,13 @@
-package com.leeleelee3264.earthtoday.nasa.service;
+package com.leeleelee3264.nasabot.domain.todayearth.application;
 
-import com.leeleelee3264.earthtoday.exception.BotException;
-import com.leeleelee3264.earthtoday.exception.ShellException;
-import com.leeleelee3264.earthtoday.nasa.client.ArchiveClient;
-import com.leeleelee3264.earthtoday.nasa.client.MetaClient;
-import com.leeleelee3264.earthtoday.nasa.client.TwitterClient;
-import com.leeleelee3264.earthtoday.nasa.dto.Meta;
-import com.leeleelee3264.earthtoday.nasa.shell.EarthGifGenerator;
-import com.leeleelee3264.earthtoday.util.LoggingUtils;
+import com.leeleelee3264.nasabot.domain.todayearth.application.consumer.ArchiveClient;
+import com.leeleelee3264.nasabot.domain.todayearth.application.consumer.MetaClient;
+import com.leeleelee3264.nasabot.infra.sms.TwitterClient;
+import com.leeleelee3264.nasabot.domain.todayearth.dto.Meta;
+import com.leeleelee3264.nasabot.global.exception.ShellException;
+import com.leeleelee3264.nasabot.global.exception.BotException;
+import com.leeleelee3264.nasabot.infra.shell.EarthGifGenerator;
+import com.leeleelee3264.nasabot.global.util.LoggingUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
@@ -85,7 +85,7 @@ public class EarthService {
     }
 
     private void saveImage(String dirName, String imageName, byte[] fByte) {
-        String fullName = dirName + File.pathSeparator + imageName;
+        String fullName = dirName + File.separator + imageName;
 
         try {
             Files.write(Paths.get(fullName), fByte);

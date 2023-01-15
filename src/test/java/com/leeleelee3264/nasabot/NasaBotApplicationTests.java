@@ -1,10 +1,10 @@
-package com.leeleelee3264.earthtoday;
+package com.leeleelee3264.nasabot;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TodayEarthApplicationTests {
+class NasaBotApplicationTests {
 
     @Test
     void contextLoads() {
