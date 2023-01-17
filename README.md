@@ -11,6 +11,20 @@
  This is repository for nasa-bot project.   
  TODO: 설명 더 쓰기. 대충 뭐하는 봇인지 알려주기. Nasa랑 트위터 이용하는 봇이다 등등 제너럴하게만. 
  
+ <br>
+ 
+ ## Development stack 
+ | stack      | info |
+|-----------------|------------|
+| Language       |   Java         |
+| Framework       |   Spring boot        |
+| Resource API | Nasa, Twitter |  
+| Server | Ubuntu 20 |  
+| Deploy | Docker/Docker-Compose | 
+| Scheduler | Spring Scheduler |  
+ 
+ 
+ <br> 
  
  ## Bot 
  - [Twitter Link: 오늘의 지구](https://twitter.com/the_earth_today)
