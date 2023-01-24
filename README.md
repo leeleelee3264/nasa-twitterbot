@@ -2,19 +2,16 @@
 
 <br> 
 
-| Start Date      | 2022-12-30                                          |
-|-----------------|-----------------------------------------------------|
-| End Date        | 2023-01-18                                          |
- 
- <br> 
- 
- This is repository for nasa-bot project.   
- TODO: 설명 더 쓰기. 대충 뭐하는 봇인지 알려주기. Nasa랑 트위터 이용하는 봇이다 등등 제너럴하게만. 
- 
+
+This is repository for nasa-bot project. The bot consists of Twitter API, Nasa API and Spring framework. 
+
+Please check [[my previous twitter project]](https://github.com/leeleelee3264/twitter-project). The project is written in Python. 
+
+
  <br>
- 
- ## Development stack 
- | stack      | info |
+
+## Development stack
+| stack      | info |
 |-----------------|------------|
 | Language       |   Java         |
 | Framework       |   Spring boot        |
@@ -22,55 +19,154 @@
 | Server | Ubuntu 20 |  
 | Deploy | Docker/Docker-Compose | 
 | Scheduler | Spring Scheduler |  
- 
- 
+
+
  <br> 
- 
- ## Bot 
- - [Twitter Link: 오늘의 지구](https://twitter.com/the_earth_today)
- 
+
+## Bot
+- [Twitter Link: 오늘의 지구](https://twitter.com/the_earth_today)
+
  <br>
- 
- # 오늘의 지구 
- 
- 
+
+# 오늘의 지구
+
+| Start Date      | 2022-12-30                                          |
+|-----------------|-----------------------------------------------------|
+| End Date        | 2023-01-18                                          |
+
+ <br> 
+
+
+ <img src="https://user-images.githubusercontent.com/35620531/214202385-091dcc4a-a2a6-472b-b03f-9084bfa3a520.png" alt="drawing" width="500"/>
+
+
+<br> 
+
+Earth today is a bot to show how the Earth looks like today. Feature of the bot is that it's handling animated image (gif) instead of simple images. With the feature, now we can 
+observe the Earth dynamically.
+
+
+<br>
+
+ <img src="https://user-images.githubusercontent.com/35620531/214202217-fcae67c4-7d48-4210-a65a-e017da8fd3b4.png" alt="drawing" width="500"/>
+
+
+<br>
+
+
+Nasa EPIC API provides series of the Earth's images. The bot is collecting the images and makes it to gif image, and tweet it.
+
+
+<br> 
+
  <img src="https://user-images.githubusercontent.com/35620531/212942085-af5de90b-8004-444d-a1c4-dc4cfe5f08cf.gif" alt="drawing" width="500"/>
- 
- TODO: 이 봇이 뭘하는지, 다른 봇과는 어떻게 다른지. 이미지를 단건으로 보여주는데 이걸 합쳐서 gif를 만든다는 걸 강조해볼까. 그리고 언제 스케쥴러가 돌아가는지 추가해주자. 
- 
- 
- ## Quick Start 
- 
- ### Step 1: Generate Nasa API Key 
- TODO: 이거 설명해둔 블로그를 링크하자. 대충 결과 이미지만 보여주자.ㅏ 
- 
- 
- <br> 
- 
- ### Step 2: Generate Twitter API Key 
- TODO: 블로그를 링크하자. 대충 결과 이미지만 보여주자. 그런데 evalated 인가 아무튼 그거 나오는 거 써야 한다. 
- 
- <br> 
- 
- ### Step 3: Run Docker 
- TODO: 이미지 다운로드될 디렉터리 써주기. 
- TODO: 타이머 설정 이외에 서버가 뜰 때 바로 확인을 해보고 싶다면 코드 수정해주라고 써주자.
- 
- 
- 
-TODO: 코드 포인트는.. 블로그에만 써야 할듯...
- 
- <br> 
- 
- ## Project TODO List 
+
+
+<br>
+
+## Project TODO List
 - [x] 1st Implement: Spring-boot
-- [x] Use Spring scheduler 
-- [x] Apply Java Lint: sonarlint 
+- [x] Use Spring scheduler
+- [x] Apply Java Lint: sonarlint
 - [x] Run command to generate gif using Java Runtime
 - [x] Deploy with Docker/Docker-Compose
 - [x] 2nd Refactoring: Domain package Structure
 - [ ] Documentation
 
+<br> 
+
+## Quick Start
+
+### Step 1: Fill up Nasa API key in application.properties
+```properties
+nasa.api.key=
+```
+
+Please generate Nasa API key and copy to application.properties. 
+
+#### How to generate Nasa API key 
+
+1. Go to [[Nasa API]](https://api.nasa.gov/)
+2. In Generate API key section, fill the form and signup. 
+3. API key is now generated! 
+
+<br>
+
+ <img src="https://user-images.githubusercontent.com/35620531/214198930-0475ee08-7e68-411f-9963-038e61c33a38.png" alt="drawing" width="500"/>
+
+
+ <br> 
+
+### Step 2: Apply Twitter developer account
+```properties
+twitter.consumer.key=
+twitter.consumer.secret=
+twitter.access.token=
+twitter.access.token.secret=
+```
+
+Please apply Twitter developer to get consumer key, consumer secret, access token and token secret. 
+
+#### How to apply Twitter developer account 
+Applying Twitter developer account is quite complicated process.
+Please check [[How to apply for a Twitter Developer account]](https://www.extly.com/docs/perfect_publisher/user_guide/tutorials/how-to-auto-post-from-joomla-to-twitter/apply-for-a-twitter-developer-account/#apply-for-a-developer-account) and follow the tutorial to get twitter developer account. 
+
+After follow the tutorial, you will generate the keys and tokens. 
+
+<br> 
+
+ <img src="https://user-images.githubusercontent.com/35620531/214199877-27bd218c-ac97-4955-b673-ba00524702cf.png" alt="drawing" width="500"/>
+
+
+
+ <br> 
+
+### Step 3: Run Docker
+```shell
+# make directory for resources
+mkdir /home/dev/study/earth-resources
+
+docker-compose build --pull --no-cache 
+docker-compose up -d
+```
+
+<br> 
+
+> The bot is scheduled every 13:00 PM. If you want to run bot right after starting jar application, please modify NasaBotApplication.java to code below.
+
+#### NasaBotApplication.java
+
+```java
+@SpringBootApplication
+@EnableScheduling
+public class NasaBotApplication {
+
+    public static void main(String[] args) {
+
+        ConfigurableApplicationContext context = SpringApplication.run(NasaBotApplication.class, args);
+        LocalDate date = LocalDate.now().minusDays(2);
+        EarthService service = context.getBean(EarthService.class);
+
+        try {
+            service.saveImages(date);
+            service.tweetEarth(date);
+
+            LoggingUtils.info("Successfully run EarthBot date: {}", date);
+        } catch (BotException e) {
+            LoggingUtils.error(e);
+        }
+
+        // for memory monitoring
+        Runtime rT = Runtime.getRuntime();
+        ...
+    }
+
+}
+```
+
+
+
+ <br>
 
 ----
 
