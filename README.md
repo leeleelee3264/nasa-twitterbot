@@ -3,12 +3,16 @@
 <br> 
 
 
-This is repository for nasa-bot project. The bot consists of Twitter API, Nasa API and Spring framework. 
+This is repository for nasa-bot project. The bot consists of `Twitter API`, `Nasa API` and `Spring framework`. 
 
-Please check [[my previous twitter project]](https://github.com/leeleelee3264/twitter-project). The project is written in Python. 
+ <br> 
+
+## Bot
+- [Twitter Link: 오늘의 지구](https://twitter.com/the_earth_today)
+- Upcoming: APOD for Korea 
 
 
- <br>
+<br>
 
 ## Development stack
 | stack      | info |
@@ -21,11 +25,6 @@ Please check [[my previous twitter project]](https://github.com/leeleelee3264/tw
 | Scheduler | Spring Scheduler |  
 
 
- <br> 
-
-## Bot
-- [Twitter Link: 오늘의 지구](https://twitter.com/the_earth_today)
-
  <br>
 
 # 오늘의 지구
@@ -37,29 +36,24 @@ Please check [[my previous twitter project]](https://github.com/leeleelee3264/tw
  <br> 
 
 
- <img src="https://user-images.githubusercontent.com/35620531/214202385-091dcc4a-a2a6-472b-b03f-9084bfa3a520.png" alt="drawing" width="500"/>
+ <img src="https://user-images.githubusercontent.com/35620531/214202904-21f0537d-dd6e-4c6f-9f44-9514e0974634.png" alt="drawing" width="500"/>
 
+<img src="https://user-images.githubusercontent.com/35620531/214203015-65b3c0e3-462c-4687-9ec6-ed6f4400f1e9.png" alt="drawing" width="500"/>
 
 <br> 
 
-Earth today is a bot to show how the Earth looks like today. Feature of the bot is that it's handling animated image (gif) instead of simple images. With the feature, now we can 
-observe the Earth dynamically.
+Earth today is a bot to show how the Earth looks like today. **Feature of the bot is that it's handling animated image instead of simple images.** With the feature, now we can observe the Earth dynamically.
 
 
-<br>
-
- <img src="https://user-images.githubusercontent.com/35620531/214202217-fcae67c4-7d48-4210-a65a-e017da8fd3b4.png" alt="drawing" width="500"/>
-
-
-<br>
+ <img src="https://user-images.githubusercontent.com/35620531/212942085-af5de90b-8004-444d-a1c4-dc4cfe5f08cf.gif" alt="drawing" width="500"/>
 
 
 Nasa EPIC API provides series of the Earth's images. The bot is collecting the images and makes it to gif image, and tweet it.
 
 
-<br> 
 
- <img src="https://user-images.githubusercontent.com/35620531/212942085-af5de90b-8004-444d-a1c4-dc4cfe5f08cf.gif" alt="drawing" width="500"/>
+ <img src="https://user-images.githubusercontent.com/35620531/214202217-fcae67c4-7d48-4210-a65a-e017da8fd3b4.png" alt="drawing" width="500"/>
+
 
 
 <br>
@@ -84,7 +78,9 @@ nasa.api.key=
 
 Please generate Nasa API key and copy to application.properties. 
 
-#### How to generate Nasa API key 
+<br> 
+
+> How to generate Nasa API key 
 
 1. Go to [[Nasa API]](https://api.nasa.gov/)
 2. In Generate API key section, fill the form and signup. 
@@ -106,12 +102,13 @@ twitter.access.token.secret=
 ```
 
 Please apply Twitter developer to get consumer key, consumer secret, access token and token secret. 
+When finsihing key generation, copy it to application.properties. 
 
-#### How to apply Twitter developer account 
-Applying Twitter developer account is quite complicated process.
-Please check [[How to apply for a Twitter Developer account]](https://www.extly.com/docs/perfect_publisher/user_guide/tutorials/how-to-auto-post-from-joomla-to-twitter/apply-for-a-twitter-developer-account/#apply-for-a-developer-account) and follow the tutorial to get twitter developer account. 
+<br> 
 
-After follow the tutorial, you will generate the keys and tokens. 
+> How to apply Twitter developer account 
+
+Please check [[How to apply for a Twitter Developer account]](https://www.extly.com/docs/perfect_publisher/user_guide/tutorials/how-to-auto-post-from-joomla-to-twitter/apply-for-a-twitter-developer-account/#apply-for-a-developer-account) and follow the tutorial to get twitter developer account. After follow the tutorial, you will generate the keys and tokens. 
 
 <br> 
 
@@ -166,12 +163,5 @@ public class NasaBotApplication {
 
 
 
- <br>
-
-----
-
-<br> 
-
-# Upcoming: APOD for Korea 
 
  
