@@ -1,15 +1,11 @@
 package com.leeleelee3264.nasabot;
 
-import com.leeleelee3264.nasabot.global.exception.BotException;
-import com.leeleelee3264.nasabot.domain.todayearth.application.EarthService;
 import com.leeleelee3264.nasabot.global.util.LoggingUtils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.text.NumberFormat;
-import java.time.LocalDate;
 
 @SpringBootApplication
 @EnableScheduling
@@ -17,18 +13,7 @@ public class NasaBotApplication {
 
     public static void main(String[] args) {
 
-        ConfigurableApplicationContext context = SpringApplication.run(NasaBotApplication.class, args);
-        LocalDate date = LocalDate.now().minusDays(2);
-        EarthService service = context.getBean(EarthService.class);
-
-        try {
-            service.saveImages(date);
-            service.tweetEarth(date);
-
-            LoggingUtils.info("Successfully run EarthBot date: {}", date);
-        } catch (BotException e) {
-            LoggingUtils.error(e);
-        }
+        SpringApplication.run(NasaBotApplication.class, args);
 
         // for memory monitoring
         Runtime rT = Runtime.getRuntime();
