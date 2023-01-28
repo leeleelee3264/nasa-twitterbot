@@ -1,5 +1,7 @@
 package com.leeleelee3264.nasabot.infra.task;
 
+import com.leeleelee3264.nasabot.domain.model.TEHistory;
+import com.leeleelee3264.nasabot.domain.todayearth.dao.TEHistoryRepository;
 import com.leeleelee3264.nasabot.global.exception.BotException;
 import com.leeleelee3264.nasabot.domain.todayearth.application.EarthService;
 import com.leeleelee3264.nasabot.global.util.LoggingUtils;
@@ -12,9 +14,34 @@ import java.time.LocalDate;
 public class EarthTask {
 
     private final EarthService earthService;
+    private final TEHistoryRepository teHistoryRepository;
 
-    public EarthTask(EarthService earthService) {
+    public EarthTask(
+            EarthService earthService,
+            TEHistoryRepository teHistoryRepository
+
+    ) {
         this.earthService = earthService;
+        this.teHistoryRepository = teHistoryRepository;
+    }
+
+    public void runBot(TEHistory todayHistory) {
+
+        try {
+            LocalDate targetDate = todayHistory.getCreateDate().minusDays(2);
+
+            this.earthService.tweetEarth(targetDate);
+            this.earthService.saveImages(targetDate);
+
+            LoggingUtils.info("Successfully run EarthBot date");
+
+            todayHistory.succeed();
+        } catch (BotException e) {
+            LoggingUtils.error(e);
+        } finally {
+            this.teHistoryRepository.save(todayHistory);
+        }
+
     }
 
     @Scheduled(cron = "0 0 13 * * *")
@@ -23,17 +50,37 @@ public class EarthTask {
         LocalDate today = LocalDate.now();
         LoggingUtils.info("Task start, run EarthBot date: {}", today);
 
-        LocalDate targetDate = today.minusDays(2);
+        TEHistory todayHistory = TEHistory.builder()
+                .tweeted(false)
+                .createDate(today)
+                .build();
 
+        this.runBot(todayHistory);
+    }
 
-        try {
-            this.earthService.saveImages(targetDate);
-            this.earthService.tweetEarth(targetDate);
+    @Scheduled(cron = "0 0 18 * * *")
+    public void triggerEarthBotBackup() {
+        LocalDate today = LocalDate.now();
+        TEHistory todayHistory = this.teHistoryRepository.findByCreateDate(today);
 
-            LoggingUtils.info("Successfully run EarthBot date");
-        } catch (BotException e) {
-            LoggingUtils.error(e);
+        if (todayHistory.isTweeted()) {
+            return;
         }
 
+        this.runBot(todayHistory);
     }
+
+    @Scheduled(cron = "0 0 23 * * *")
+    public void triggerEarthBotBackup2() {
+        LocalDate today = LocalDate.now();
+        TEHistory todayHistory = this.teHistoryRepository.findByCreateDate(today);
+
+        if (todayHistory.isTweeted()) {
+            return;
+        }
+
+        this.runBot(todayHistory);
+    }
+
+
 }

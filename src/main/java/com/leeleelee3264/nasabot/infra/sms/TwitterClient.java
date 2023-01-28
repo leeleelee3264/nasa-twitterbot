@@ -49,22 +49,18 @@ public class TwitterClient {
         }
     }
 
-    public void tweetMedia(File file) {
+    public void tweetMedia(File file) throws TwitterException {
 
-        try {
-            // Get empty StatusUpdate object to get new StatusUpdate object with media id.
-            StatusUpdate statusUpdate = StatusUpdate.of("");
-            UploadedMedia media = this.twitterInstance.v1().tweets().uploadMedia(file);
+        // Get empty StatusUpdate object to get new StatusUpdate object with media id.
+        StatusUpdate statusUpdate = StatusUpdate.of("");
+        UploadedMedia media = this.twitterInstance.v1().tweets().uploadMedia(file);
 
-            if (media != null) {
-                StatusUpdate update2 = statusUpdate.mediaIds(media.getMediaId());
-                this.twitterInstance.v1().tweets().updateStatus(update2);
-            }
-
-            LoggingUtils.info("Successfully upload media: {}", file.getAbsolutePath());
-        } catch (TwitterException e) {
-            LoggingUtils.error(e);
+        if (media != null) {
+            StatusUpdate update2 = statusUpdate.mediaIds(media.getMediaId());
+            this.twitterInstance.v1().tweets().updateStatus(update2);
         }
+
+        LoggingUtils.info("Successfully upload media: {}", file.getAbsolutePath());
     }
 
 }

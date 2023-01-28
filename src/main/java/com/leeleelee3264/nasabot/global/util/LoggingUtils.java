@@ -3,11 +3,20 @@ package com.leeleelee3264.nasabot.global.util;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StringUtils;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 @Slf4j
 public class LoggingUtils {
 
     private LoggingUtils() throws InstantiationException {
         throw new InstantiationException();
+    }
+
+    public static String getStackTrace(Exception exception) {
+        StringWriter sw = new StringWriter();
+        exception.printStackTrace(new PrintWriter(sw));
+        return sw.toString();
     }
 
     public static void info(String format, Object arg) {
