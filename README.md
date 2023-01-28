@@ -65,7 +65,8 @@ Nasa EPIC API provides series of the Earth's images. The bot is collecting the i
 - [x] Run command to generate gif using Java Runtime
 - [x] Deploy with Docker/Docker-Compose
 - [x] 2nd Refactoring: Domain package Structure
-- [ ] Documentation
+- [x] Implement retry logic
+- [x] Documentation
 
 <br> 
 
@@ -117,8 +118,21 @@ Please check [[How to apply for a Twitter Developer account]](https://www.extly.
 
 
  <br> 
+ 
+### Step 3: Build Jar 
 
-### Step 3: Run Docker
+```shell
+gradle build
+```
+
+
+Please check [[How to install gradle]](https://i5i5.tistory.com/264) to install gradle before running this command. 
+
+
+
+<br> 
+
+### Step 4: Run Docker
 ```shell
 # make directory for resources
 mkdir /home/dev/study/earth-resources
