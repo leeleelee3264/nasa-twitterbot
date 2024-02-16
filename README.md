@@ -36,7 +36,6 @@ This is repository for nasa-bot project. The bot consists of `Twitter API`, `Nas
  <br> 
 
 
- <img src="https://user-images.githubusercontent.com/35620531/214202904-21f0537d-dd6e-4c6f-9f44-9514e0974634.png" alt="drawing" width="500"/>
 
 <img src="https://user-images.githubusercontent.com/35620531/214203015-65b3c0e3-462c-4687-9ec6-ed6f4400f1e9.png" alt="drawing" width="500"/>
 
